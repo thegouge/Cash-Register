@@ -1,6 +1,6 @@
 // Instructions Go Here
 
-export function caesarCipher(str) {
+export function checkCashRegister(price, cash, cid) {
   // Code Goes Here
 }
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Git Java all up in dis script</title>
+
+  <link rel="stylesheet" href="master.css">
+</head>
+
+<body>
+
+  <h1>Tests</h1>
+
+  <div id="app">
+    <h2 class="app-title" title=""></h2>
+
+    <label for="input">Input a ???</label>
+    <input type="text" id="input" value="" placeholder="">
+
+    <button id="submit">Submit</button>
+
+    <p id="output"></p>
+  </div>
+
+  <div id="mocha"></div>
+  <script src="https://unpkg.com/expect@%3C21/umd/expect.min.js"></script>
+  <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+  <script>
+    mocha.setup("bdd")
+  </script>
+
+  <script type="module">
+    import "./index.js"; import "./index.test.js"; mocha.checkLeaks(); mocha.run();
+  </script>
+
+  <script src="index.js"></script>
+
+</body>
+
+</html>
+
+<div class="app" id="palindrome">
+
+
+</div>

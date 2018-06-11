@@ -22,7 +22,12 @@ h1 {
   height: 340px;
   border: 5px solid rgb(161, 161, 161);
   overflow: auto;
-  /* text-align: center; */
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
 }
 
 #input {

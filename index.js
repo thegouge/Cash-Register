@@ -1,9 +1,6 @@
-// Instructions Go Here
-
-// reference map for money values
 export function checkCashRegister(price, cash, cid) {
-  // reference map for money values
-  const values = [{
+  const values = [
+    {
       name: "ONE HUNDRED",
       val: 100
     },
@@ -53,9 +50,9 @@ export function checkCashRegister(price, cash, cid) {
     });
     return {
       name: change[0],
-      value: Math.round((values[index].val) * 100) / 100,
-      total: Math.round((change[1]) * 100) / 100
-    }
+      value: Math.round(values[index].val * 100) / 100,
+      total: Math.round(change[1] * 100) / 100
+    };
   });
   registerChange.sort((a, b) => {
     if (a.value > b.value) {
@@ -68,9 +65,12 @@ export function checkCashRegister(price, cash, cid) {
   });
 
   // variable for the total amount in the drawer
-  let drawerTotal = Math.round(registerChange.reduce((tot, curr) => {
-    return tot + curr.total;
-  }, 0) * 100) / 100;
+  let drawerTotal =
+    Math.round(
+      registerChange.reduce((tot, curr) => {
+        return tot + curr.total;
+      }, 0) * 100
+    ) / 100;
 
   const changeGiven = [];
 
@@ -99,7 +99,7 @@ export function checkCashRegister(price, cash, cid) {
     return {
       status: "INSUFFICIENT_FUNDS",
       change: []
-    }
+    };
   } else if (drawerTotal === 0) {
     return {
       status: "CLOSED",
@@ -113,10 +113,27 @@ export function checkCashRegister(price, cash, cid) {
   }
 }
 
-const input = document.getElementById("input");
+const price = document.getElementById("price").value;
+const cash = document.getElementById("cash-paid").value;
+const inputs = [...document.getElementsByClassName("input")].map((input) => [
+  input.id.toUpperCase(),
+  input.value
+]);
 const output = document.getElementById("output");
 const submit = document.getElementById("submit");
 
 submit.addEventListener("click", () => {
+  const registerStatus = checkCashRegister(price, cash, inputs);
+  const changeLeft = registerStatus.change
+    .map((denom) => {
+      return `${denom[1].toFixed(2)} dollars worth of ${denom[0]}`;
+    })
+    .join("<br/>");
 
+  output.innerHTML =
+    "the status of the register is: " +
+    registerStatus.status +
+    "<br/><br/>" +
+    "the change given for the transaction is: <br/>" +
+    changeLeft;
 });

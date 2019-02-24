@@ -1,39 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Git Java all up in dis script</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Git Java all up in dis script</title>
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+    <link rel="stylesheet" href="master.css" />
+  </head>
 
-  <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
-  <link rel="stylesheet" href="master.css">
-</head>
+  <body>
+    <div id="app">
+      <h2 class="app-title" title="">Cash Register</h2>
 
-<body>
-  <div id="app">
-    <h2 class="app-title" title="">Cash Register</h2>
+      <label for="form">Imagine you're selling something!</label>
+      <form onsubmit="event.preventDefault()">
+        <label for="price">how much the thing costs</label>
+        $<input id="price" type="number" value="3.26" />
 
-    <label for="input">Fill out this form</label>
-    <form action="">
+        <label for="cash-paid">how much the customer paid for it</label>
+        $<input type="number" id="cash-paid" value="100" />
 
-      <button id="submit">Submit</button>
-    </form>
+        <div id="register">
+          how many dollars worth of
+          <label for="pennies">Pennies</label>
+          $<input
+            class="input"
+            id="pennies"
+            type="number"
+            value="1.01"
+            step="0.01"
+          />
 
-    <p id="output"></p>
-  </div>
+          <label for="nickels">Nickels</label>
+          $<input
+            class="input"
+            id="nickels"
+            type="number"
+            value="2.05"
+            step="0.05"
+          />
 
-  <div id="mocha"></div>
-  <script src="https://unpkg.com/expect@%3C21/umd/expect.min.js"></script>
-  <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
-  <script>
-    mocha.setup("bdd")
-  </script>
+          <label for="dimes">Dimes</label>
+          $<input
+            class="input"
+            id="dimes"
+            type="number"
+            value="3.1"
+            step="0.1"
+          />
 
-  <script type="module">
-    import "./index.js"; import "./index.test.js"; mocha.checkLeaks(); mocha.run();
-  </script>
-</body>
+          <label for="quarters">Quarters</label>
+          $<input
+            class="input"
+            id="quarters"
+            type="number"
+            value="4.25"
+            step="0.25"
+          />
 
+          <label for="ones">Singles</label>
+          $<input class="input" id="ones" type="number" value="90" step="1" />
+
+          <label for="fives">Fivers</label>
+          $<input class="input" id="fives" type="number" value="55" step="5" />
+
+          <label for="tens">Tens</label>
+          $<input class="input" id="tens" type="number" value="20" step="10" />
+
+          <label for="twenties">Twenties</label>
+          $<input
+            class="input"
+            id="twenties"
+            type="number"
+            value="60"
+            step="20"
+          />
+
+          <label for="hundreds">Hundreds</label>
+          $<input
+            class="input"
+            id="hundreds"
+            type="number"
+            value="100"
+            step="100"
+          />
+          <br />
+          are in your drawer?
+        </div>
+
+        <button id="submit">Submit</button>
+      </form>
+
+      <p id="output"></p>
+    </div>
+
+    <div id="mocha"></div>
+    <script src="https://unpkg.com/expect@%3C21/umd/expect.min.js"></script>
+    <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+    <script>
+      mocha.setup("bdd");
+    </script>
+
+    <script type="module">
+      import "./index.js";
+      import "./index.test.js";
+      mocha.checkLeaks();
+      mocha.run();
+    </script>
+  </body>
 </html>
